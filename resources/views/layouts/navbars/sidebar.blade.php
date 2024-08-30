@@ -43,12 +43,12 @@
                     <span>Payout Management</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
+            {{-- <!-- Nav Item - Charts -->
             <li class="nav-item {{ Request::is('cashout-management') ? 'active' : '' }}">
                 <a class="nav-link" href="/cashout-management">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Cashout Management</span></a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Tables -->
             <li class="nav-item {{ Request::is('user-management') ? 'active' : '' }}">

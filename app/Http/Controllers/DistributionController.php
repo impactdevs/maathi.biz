@@ -155,7 +155,7 @@ class DistributionController extends Controller
             }
 
             $insertData[] = [
-                'account_id' => $beneficiary['accountId'],
+                // 'account_id' => $beneficiary['accountId'],
                 'user_id' => $beneficiary['value'],
                 'amount_ugx' => $beneficiary['amount_ugx'] ?? null,
                 'amount_usd' => $beneficiary['amount_usd'] ?? null,

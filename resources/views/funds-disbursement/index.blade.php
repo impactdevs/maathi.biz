@@ -41,16 +41,6 @@
                     </div>
                     <div class="form-group" id="amountSection" style="display: none;">
                         <div class="row">
-                            <div class="col" id="disburseFrom">
-                                <label for="account_id">Disburse From:</label>
-                                {{-- a drop down showing all accounts --}}
-                                <select id="accountId" class="form-control mb-2" name="account_id">
-                                    @foreach ($accounts as $account)
-                                        <option value="{{ $account->id }}">{{ $account->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
                             <div class="col">
                                 <label for="account_id">Account Type:</label>
                                 {{-- a drop down showing all accounts --}}
@@ -208,7 +198,7 @@
 
             $('#btnAddFunds').click(function(e) {
                 e.preventDefault();
-                var accountId = $('#accountId').val();
+                // var accountId = $('#accountId').val();
                 var amount = $('#fundsAmount').val();
                 var reason = $('#reason').val();
                 var disbursementDate = $('#disbursementDate').val();
@@ -233,7 +223,7 @@
                             ': ' + amount + ' (Reason: ' + reason +
                             ', Date: ' + disbursementDate + ')');
                     }
-                    $(this).data('accountId', accountId);
+                    // $(this).data('accountId', accountId);
                     $(this).data('amount', amount);
                     $(this).data('reason', reason);
                     $(this).data('disbursementDate', disbursementDate);
@@ -243,7 +233,7 @@
                 updateTotalFunds(amount); // Reduce the total funds by the added amount
 
                 alert("Funds have been added to selected beneficiaries.");
-                $('#accountId').val('');
+                // $('#accountId').val('');
                 $('#fundsAmount').val('');
                 $('#reason').val('');
                 $('#disbursementDate').val('');
@@ -259,7 +249,7 @@
                 var beneficiaries = [];
                 $('#lstBox2 option').each(function() {
                     beneficiaries.push({
-                        accountId: $(this).data('accountId'),
+                        // accountId: $(this).data('accountId'),
                         value: $(this).val(),
                         amount: $(this).data('amount'),
                         reason: $(this).data('reason'),
@@ -358,8 +348,8 @@
                 var selected = $('#lstBox2 option:selected');
                 selected.each(function() {
                     if ($(this).hasClass('text-warning')) {
-                        //hide disburse from: field
-                        $('#disburseFrom').hide();
+                        // //hide disburse from: field
+                        // $('#disburseFrom').hide();
 
                         //stop all other options from beiing selected
                         $('#lstBox2 option').each(function() {
@@ -371,7 +361,7 @@
                         // set the isCashOutSelected to true
                         isCashOutSelected = true;
                     } else {
-                        $('#disburseFrom').show();
+                        // $('#disburseFrom').show();
 
                         // set the isCashOutSelected to false
                         isCashOutSelected = false;
