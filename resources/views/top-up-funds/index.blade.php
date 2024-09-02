@@ -71,63 +71,80 @@
                         {{-- Drop down with accounts(to select one) --}}
                         <div class="form-group">
                             <ol>
-                            <label for="account"><li>Account</li></label>
-                            <select data-live-search="true" class="selectpicker form-control shadow-none @error('account_id') is-invalid @enderror" id="account"
-                                name="account_id">
-                                <option value="">Select an Account</option>
-                                @foreach ($accounts as $account)
-                                    <option value="{{ $account->id }}">{{ $account->name }}</option>
-                                @endforeach
-                            </select>
-                            <small id="emailHelp" class="form-text text-muted">This should be the account you want to top up
-                                funds</small>
-                            @error('account_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                                <label for="account">
+                                    <li>Account</li>
+                                </label>
+                                <select data-live-search="true"
+                                    class="selectpicker form-control shadow-none @error('account_id') is-invalid @enderror"
+                                    id="account" name="account_id">
+                                    <option value="">Select an Account</option>
+                                    @foreach ($accounts as $account)
+                                        <option value="{{ $account->id }}">{{ $account->name }}</option>
+                                    @endforeach
+                                </select>
+                                <small id="emailHelp" class="form-text text-muted">This should be the account you want to
+                                    top up
+                                    funds</small>
+                                @error('account_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
 
-                            <div class="form-group">
-                                <label for="account_type"><li>Account Type</li></label>
-                                <div class="btn-group-custom d-flex justify-content-between">
-                                    <input type="radio" class="btn-check" name="account_type" id="ugx" autocomplete="off" value="ugx" checked>
-                                    <label class="btn btn-outline-primary px-5" for="ugx">ugx</label>
+                                <div class="form-group">
+                                    <label for="account_type">
+                                        <li>Account Type</li>
+                                    </label>
+                                    <div class="btn-group-custom d-flex justify-content-between">
+                                        <input type="radio" class="btn-check" name="account_type" id="ugx"
+                                            autocomplete="off" value="ugx" checked>
+                                        <label class="btn btn-outline-primary px-5" for="ugx">ugx</label>
 
-                                    <input type="radio" class="btn-check" name="account_type" id="usd" autocomplete="off" value="usd">
-                                    <label class="btn btn-outline-primary px-5" for="usd">usd</label>
+                                        <input type="radio" class="btn-check" name="account_type" id="usd"
+                                            autocomplete="off" value="usd">
+                                        <label class="btn btn-outline-primary px-5" for="usd">usd</label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="amount"><li>Amount</li></label>
-                                <input type="text" class="form-control @error('amount') is-invalid @enderror"
-                                    id="amount" name="amount" placeholder="Enter the Top up Amount"
-                                    value="{{ old('amount') }}">
-                                <small id="emailHelp" class="form-text text-muted">This should be the amount you want to top
-                                    up
-                                    in your records</small>
-                                @error('amount')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="desc"><li>Description</li></label>
-                                <textarea class="form-control shadow-none @error('description') is-invalid @enderror" id="desc" rows="3"
-                                    name="description">{{ old('description') }}</textarea>
-                                <small id="description" class="form-text text-muted">This should be a simple description of
-                                    the
-                                    fund you are topping up</small>
-                                @error('description')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="topUpDate"><li>Top Up Date</li></label>
-                                <input type="date" class="form-control shadow-none @error('top_up_date') is-invalid @enderror"
-                                    id="topUpDate" name="top_up_date" value="{{ old('top_up_date') }}">
-                                @error('top_up_date')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </ul>
+                                <div class="form-group">
+                                    <label for="amount">
+                                        <li>Amount</li>
+                                    </label>
+                                    <input type="text" class="form-control @error('amount') is-invalid @enderror"
+                                        id="amount" name="amount" placeholder="Enter the Top up Amount"
+                                        value="{{ old('amount') }}">
+                                    <small id="emailHelp" class="form-text text-muted">This should be the amount you want to
+                                        top
+                                        up
+                                        in your records</small>
+                                    @error('amount')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="desc">
+                                        <li>Description</li>
+                                    </label>
+                                    <textarea class="form-control shadow-none @error('description') is-invalid @enderror" id="desc" rows="3"
+                                        name="description">{{ old('description') }}</textarea>
+                                    <small id="description" class="form-text text-muted">This should be a simple description
+                                        of
+                                        the
+                                        fund you are topping up</small>
+                                    @error('description')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="topUpDate">
+                                        <li>Top Up Date</li>
+                                    </label>
+                                    <input type="date"
+                                        class="form-control shadow-none @error('top_up_date') is-invalid @enderror"
+                                        id="topUpDate" name="top_up_date" value="{{ old('top_up_date') }}">
+                                    @error('top_up_date')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                </ul>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -150,8 +167,8 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
         $(document).ready(function() {
             @if ($errors->any())

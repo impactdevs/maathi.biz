@@ -16,7 +16,8 @@
                 <div class="col-md-5">
                     <div class="form-group sel-box">
                         <label for="lstBox1">Available Beneficiaries</label>
-                        <select multiple="multiple" id="lstBox1" class="form-control form-select-lg">
+                        <select id="lstBox1" class="form-control form-select-lg my-select" multiple
+                            data-live-search="true">
                             @foreach ($beneficiaries as $beneficiary)
                                 <option value="{{ $beneficiary->id }}"
                                     class="@if ($beneficiary->beneficiary_type == 'cash_out') text-warning @endif">
@@ -44,7 +45,7 @@
                             <div class="col">
                                 <label for="account_id">Account Type:</label>
                                 {{-- a drop down showing all accounts --}}
-                                <select id="accountType" class="form-control mb-2" name="account_type">
+                                <select id="accountType" class="form-control mb-2 selectpicker " name="account_type">
                                     <option value="ugx">ugx</option>
                                     <option value="usd">usd</option>
                                 </select>
@@ -88,9 +89,27 @@
         .btn {
             width: 100%;
         }
+
+        .my-select .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
     </style>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
         $(document).ready(function() {
+            $('.my-select').selectpicker({
+                liveSearch: true,
+                actionsBox: true, // Allows "Select All" and "Deselect All" buttons.
+                style: 'btn-default',
+                size: 10, // Keeps dropdown open with at least 10 visible options
+                liveSearchStyle: 'contains',
+
+                // automatically open the dropdown
+                showTick: true,
+            });
+
             //determne f its a checkout
             var isCashOutSelected = false;
 
