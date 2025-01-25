@@ -64,5 +64,20 @@
                     <span>Account Management</span></a>
             </li>
 
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                APP LOGS
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item {{ Request::is('audit-logs') ? 'active' : '' }}">
+                <a class="nav-link" href="/audit-logs">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Audit Logs</span></a>
+            </li>
+
         </ul>
         <!-- End of Sidebar -->
