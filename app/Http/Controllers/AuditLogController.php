@@ -8,7 +8,7 @@ class AuditLogController extends Controller
 {
     public function index()
     {
-        $logs = AuditLog::latest()->paginate(10);
+        $logs = AuditLog::latest()->get();
         return view('audit_logs.index', compact('logs'));
     }
 }
