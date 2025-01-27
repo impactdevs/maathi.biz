@@ -2,7 +2,7 @@
 @section('content')
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Application Logs</h1>
-    <p class="mb-4">This section will show a list of activities taking place in this application.</p>
+    <p class="mb-4">This section will show a list of activities taking place in this application.</a>.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
