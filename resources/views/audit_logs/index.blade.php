@@ -2,7 +2,7 @@
 @section('content')
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Application Logs</h1>
-    <p class="mb-4">This section will show a list of activities taking place in this application.</a>.</p>
+    <p class="mb-4">This section will show a list of activities taking place in this application.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -33,7 +33,7 @@
                                     @if (!empty($log->old_data))
                                         <div>
                                             @foreach (json_decode($log->old_data, true) as $key => $value)
-                                                <span><strong>{{ ucfirst($key) }}:</strong> {{ $value }}</span>,
+                                                <span><strong>{{ ucfirst($key) }}:</strong> {{ is_array($value) ? implode(', ', $value) : $value }}</span>,
                                             @endforeach
                                         </div>
                                     @else
@@ -44,8 +44,7 @@
                                     @if (!empty($log->new_data))
                                         <div>
                                             @foreach (json_decode($log->new_data, true) as $key => $value)
-                                                <span class="ms-1"><strong>{{ ucfirst($key) }}:</strong>
-                                                    {{ $value }}</span>,
+                                                <span class="ms-1"><strong>{{ ucfirst($key) }}:</strong> {{ is_array($value) ? implode(', ', $value) : $value }}</span>,
                                             @endforeach
                                         </div>
                                     @else
